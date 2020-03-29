@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "96976543274",
+    "firebase_url": "https://food-delivery-app-s4.firebaseio.com",
+    "project_id": "food-delivery-app-s4",
+    "storage_bucket": "food-delivery-app-s4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96976543274:android:596bfec990a876e9b96d53",
+        "android_client_info": {
+          "package_name": "com.appsbyasfar.food_delivery_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96976543274-bcsot0m25a185mog5g5pd4hvsq4885h3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appsbyasfar.food_delivery_app",
+            "certificate_hash": "c971b2e719c41ccecd5a405273db7eb32cde3775"
+          }
+        },
+        {
+          "client_id": "96976543274-39vsoqkgrt0e6d27ibc4s098moc21cio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAncFeKQr-QnwcOwA10bKLGg8xrr8Tr8yI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96976543274-39vsoqkgrt0e6d27ibc4s098moc21cio.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96976543274:android:057103098f72f583b96d53",
+        "android_client_info": {
+          "package_name": "com.example.flutter_provider_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96976543274-39vsoqkgrt0e6d27ibc4s098moc21cio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAncFeKQr-QnwcOwA10bKLGg8xrr8Tr8yI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96976543274-39vsoqkgrt0e6d27ibc4s098moc21cio.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
