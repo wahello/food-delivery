@@ -69,4 +69,15 @@ class ProductList extends ChangeNotifier{
 //    notifyListeners();
     return this;
   }
+
+  List<Product> getProductsByCategory(String id) {
+    List<Product> categoryProducts=List();
+    for(Product p in products){
+      print("${p.categoryID} | ${id}:${p.id.toLowerCase().contains(id.toLowerCase())}");
+      if(p.categoryID.toLowerCase().compareTo(id.toLowerCase())==0){
+        categoryProducts.add(p);
+      }
+    }
+    return categoryProducts;
+  }
 }

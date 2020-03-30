@@ -33,13 +33,14 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
                 },
                 child: Icon(
                   Icons.notifications_none,
+                  color: Colors.white,
                   size: 32,
                 ),
               ),
             ],
           ),
         ),
-      ),
+      ), preferredSize: null,
     );
   }
 

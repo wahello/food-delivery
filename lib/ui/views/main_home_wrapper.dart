@@ -17,7 +17,7 @@ class MainHomeWrapper extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<ProductList>(create: (context)=>productList,),
         ChangeNotifierProvider<UserModel>(create: (context)=>UserModel(),),
-        ChangeNotifierProvider<FavouriteProducts>(create: (context)=>FavouriteProducts(),),
+        ChangeNotifierProvider<FavouriteProducts>(create: (context)=>FavouriteProducts(productList.products),),
         ChangeNotifierProvider<CategoryList>(create: (context) => CategoryList(),),
       ],
       child: MainHome(),

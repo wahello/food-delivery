@@ -1,14 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/core/models/favourite_products.dart';
-import 'package:food_delivery_app/core/models/latest_products.dart';
 import 'package:food_delivery_app/core/models/product.dart';
 import 'package:food_delivery_app/core/models/product_list.dart';
 import '../shared/text_styles.dart' as style;
-import '../../locator.dart';
 import 'package:provider/provider.dart';
-import '../../core/Dish_list.dart';
 import '../views/itemDetails.dart';
 
 class LatestProductListView extends StatefulWidget {
@@ -20,9 +15,6 @@ class _LatestProductListViewState extends State<LatestProductListView> {
   final PageController ctrl = PageController(viewportFraction: 0.8);
 
   int currentPage = 0;
-
-
-
   _buildStoryPage(Product product, bool active,context) {
     // Animated Properties
     final double blur = active ? 7 : 0;
@@ -50,7 +42,7 @@ class _LatestProductListViewState extends State<LatestProductListView> {
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage(product.images[0]),
+                    image: NetworkImage(product.images[0]),
                   ),
                   boxShadow: [BoxShadow(color: Colors.black38, blurRadius: blur, offset: Offset(offset, offset))]
               ),

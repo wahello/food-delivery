@@ -7,9 +7,9 @@ class FavouriteProducts extends ChangeNotifier{
   SharedPreferences preferences;
   List<Product> products;
   List<Product> allProducts;
-  FavouriteProducts(){
+  FavouriteProducts(List<Product> allProducts){
     products=List();
-    allProducts=List();
+    this.allProducts=allProducts;
     getProductsList();
   }
 
@@ -38,14 +38,13 @@ class FavouriteProducts extends ChangeNotifier{
   }
 
   void getProductsList() async{
-//    SharedPreferences preferences=await SharedPreferences.getInstance();
-//    allProducts=await Database.getInstance().getLatestMenuItems();
-//    for( Product p in allProducts){
-//      p.liked=preferences.getBool(p.id)??false;
-//      if(p.liked){
-//        products.add(p);
-//      }
-//    }
-//    notifyListeners();
+    SharedPreferences preferences=await SharedPreferences.getInstance();
+    for( Product p in allProducts){
+      p.liked=preferences.getBool(p.id)??false;
+      if(p.liked){
+        products.add(p);
+      }
+    }
+    notifyListeners();
   }
 }

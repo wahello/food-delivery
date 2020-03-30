@@ -25,49 +25,11 @@ class _ShoppingCartViewState extends State<ShoppingCartView> {
             elevation: 10,
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-              height: 140,
+              height: 100,
               width: MediaQuery.of(context).size.width * 0.85,
               color: Theme.of(context).cardColor,
               child: Column(
                 children: <Widget>[
-                  Expanded(
-                    child: Container(
-                      height: 50,
-                      child: TextField(
-
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.card_giftcard,
-                            color: Theme.of(context).primaryColor,
-                            size: 30,
-                          ),
-                          contentPadding: EdgeInsets.only(top:6),
-                          border: new OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(
-                              const Radius.circular(8.0),
-                            ),
-                            borderSide: BorderSide(
-                              width: 0,
-                              style: BorderStyle.none,
-                            ),
-                          ),
-                          filled: true,
-                          fillColor:
-                          Theme.of(context).brightness == Brightness.light
-                              ? Colors.grey.withOpacity(0.2)
-                              : Colors.white,
-                          hintStyle: TextStyle(
-                              color: Theme.of(context).brightness == Brightness.light
-                                  ? Colors.black
-                                  : Colors.grey,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500
-                          ),
-                          hintText: "Codice Coupon",
-                        ),
-                      ),
-                    ),
-                  ),
                   SizedBox(
                     height: 6,
                   ),

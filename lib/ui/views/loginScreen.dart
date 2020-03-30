@@ -23,20 +23,41 @@ class _LoginScreenState extends State<LoginScreen>
   var loading=false;
   Auth authService=Auth();
 
-
   TextEditingController emailController=TextEditingController();
   TextEditingController passwordController=TextEditingController();
 
-
   void signInWithGoogle() {
-    authService.signInWithGoogle().then((uid){
+    enableLoading();
+    authService.signInWithGoogle().then((uid)async{
       if(uid==null)return;
+      ProductList productList=await ProductList().getProductsList();
+      disableLoading();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => MainHome(),
+          builder: (context) => MainHomeWrapper(productList: productList,),
         ),
       );
+    }).catchError((err){
+      disableLoading();
+      ToastCall.showToast(err.message);
+    });
+  }
+
+  void signInWithFacebook(){
+    enableLoading();
+    authService.singInWithFacebook().then((uid)async{
+      if(uid==null)return;
+      ProductList productList=await ProductList().getProductsList();
+      disableLoading();
+      Navigator.pushReplacement(context,
+        MaterialPageRoute(
+          builder: (context) => MainHomeWrapper(productList: productList,),
+        ),
+      );
+    }).catchError((err){
+      disableLoading();
+      print(err);
     });
   }
 
@@ -411,7 +432,9 @@ class _LoginScreenState extends State<LoginScreen>
                                               children: <Widget>[
                                                 Expanded(
                                                   child: FlatButton(
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      signInWithFacebook();
+                                                    },
                                                     padding: EdgeInsets.only(
                                                       top: 20.0,
                                                       bottom: 20.0,

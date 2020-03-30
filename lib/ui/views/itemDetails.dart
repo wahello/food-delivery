@@ -287,7 +287,7 @@ class _CarCarouselState extends State<CarCarousel> {
           decoration: BoxDecoration(),
           child: Hero(
             tag: widget.product.id,
-            child: Image.asset(
+            child: Image.network(
               assetName,
               fit: BoxFit.cover,
               color: Colors.lightBlueAccent.withOpacity(0.2),
@@ -498,7 +498,7 @@ class SheetContainer extends StatelessWidget {
                 ),
                 Text(
                   product.description??"Nessuna descrizione disponibile",
-                  style: style.textTheme,
+                   style: style.textTheme,
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.05,

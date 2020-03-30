@@ -48,8 +48,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => FavoriteList());
       case '/mainHome':
         return MaterialPageRoute(builder: (_)=> MainHome());
-      case '/notification':
-        return MaterialPageRoute(builder: (context) => NotificationPage()) ;
+      // case '/notification':
+      //   return MaterialPageRoute(builder: (context) => NotificationPage()) ;
       case '/shoppingCart':
         return MaterialPageRoute(builder: (context) => ShoppingCartView());
       case '/onBoarding' :

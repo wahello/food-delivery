@@ -11,5 +11,4 @@ class Category{
     this.img=doc.data['imgUrl'];
     return this;
   }
-
 }

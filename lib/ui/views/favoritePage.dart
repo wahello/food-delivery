@@ -26,6 +26,7 @@ class FavoriteList extends StatelessWidget {
                   itemCount: favourite.products.length,
                   itemBuilder: (context, index) {
                     return ProductTileWidget(
+                      Provider.of<FavouriteProducts>(context,listen: true),
                       product: favourite.products[index],
                     );
                   },

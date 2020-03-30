@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:food_delivery_app/ui/shared/toast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -52,6 +54,24 @@ class Auth implements BaseAuth {
     final FirebaseUser user = (await _firebaseAuth.signInWithCredential(credential)).user;
     print("signed in " + user.displayName);
     return user.uid;
+  }
+
+  Future<String> singInWithFacebook()async{
+    final FacebookLogin facebookLogin = FacebookLogin();
+    // https://github.com/roughike/flutter_facebook_login/issues/210
+    facebookLogin.loginBehavior = FacebookLoginBehavior.webViewOnly;
+    final FacebookLoginResult result =
+    await facebookLogin.logIn(<String>['public_profile']);
+    if (result.accessToken != null) {
+      final AuthResult authResult = await _firebaseAuth.signInWithCredential(
+        FacebookAuthProvider.getCredential(
+            accessToken: result.accessToken.token),
+      );
+      return authResult.user.uid;
+    } else {
+      throw PlatformException(
+          code: 'ERROR_ABORTED_BY_USER', message: 'Sign in aborted by user');
+    }
   }
 
   Future<bool> isEmailVerified(){

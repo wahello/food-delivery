@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-           Container(
+          Container(
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.only(left: 30.0, right: 30.0, top: 30.0),
             alignment: Alignment.center,
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     highlightColor: Colors.white,
                     onPressed: () => gotoLogin(),
                     child: Container(
-                      padding:  EdgeInsets.symmetric(
+                      padding: EdgeInsets.symmetric(
                         vertical: 20.0,
                         horizontal: 20.0,
                       ),
@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   PageController _controller =
-       PageController(initialPage: 1, viewportFraction: 1.0);
+      PageController(initialPage: 1, viewportFraction: 1.0);
 
   @override
   Widget build(BuildContext context) {
@@ -179,10 +179,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           height: MediaQuery.of(context).size.height,
           child: PageView(
             controller: _controller,
-            physics:  AlwaysScrollableScrollPhysics(),
-            children: <Widget>[LoginScreen(), HomePage(), SignUpPage(goToSignIn: gotoLogin,)],
+            physics: AlwaysScrollableScrollPhysics(),
+            children: <Widget>[
+              LoginScreen(),
+              HomePage(),
+              SignUpPage(
+                goToSignIn: gotoLogin,
+              )
+            ],
             scrollDirection: Axis.horizontal,
-
           )),
     );
   }
