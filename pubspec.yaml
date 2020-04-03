@@ -1,16 +1,6 @@
 name: food_delivery_app
 description: A new Flutter application.
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 2.0.0+2
 
 environment:
@@ -30,7 +20,6 @@ dependencies:
   flare_flutter: ^1.5.5
   fluttertoast: ^3.1.3
   loading: ^1.0.2
-  #Firebase
   firebase_analytics: ^5.0.2
   firebase_core: ^0.4.0+9
   firebase_auth: ^0.14.0+5
@@ -38,19 +27,15 @@ dependencies:
   google_sign_in: ^4.1.1
   firebase_storage: ^3.1.3
   cloud_firestore: ^0.13.4+2
-  #flutter_facebook_login: ^1.1.1
-  #utils
   shared_preferences: ^0.5.6+1
   stripe_sdk: ^2.4.2
   stripe_payment: ^1.0.6
   image_picker: ^0.6.0
-
-  #image_picker_flutter: ^1.4.4
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  flutter_automation: ^1.3.2
+  flutter_staggered_grid_view: ^0.3.0
   cupertino_icons: ^0.1.2
+  flutter_form_builder: ^3.8.1
+  file_picker: ^1.4.3+2
 
 dev_dependencies:
   flutter_test:
@@ -61,16 +46,7 @@ flutter_icons:
   android: true
   ios: true
 
-
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
   fonts:
     - family: CustomSocial
@@ -97,6 +73,7 @@ flutter:
     - assets/food7.jpg
     - assets/food8.jpg
     - assets/food9.jpg
+    - assets/Asset51.png
     - assets/food10.jpg
     - assets/food11.jpg
     - assets/food12.jpg
@@ -127,29 +104,3 @@ flutter:
     - assets/Walkthrough/
     - assets/icons&splashs/
     - assets/icons&splashs/launcher.png
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware.
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages

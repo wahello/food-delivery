@@ -40,7 +40,7 @@ class TitleAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
     );
   }
-
+  
   @override
   Size get preferredSize => Size.fromHeight(90);
 }

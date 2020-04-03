@@ -58,7 +58,6 @@ class Auth implements BaseAuth {
 
   Future<String> singInWithFacebook()async{
     final FacebookLogin facebookLogin = FacebookLogin();
-    // https://github.com/roughike/flutter_facebook_login/issues/210
     facebookLogin.loginBehavior = FacebookLoginBehavior.webViewOnly;
     final FacebookLoginResult result =
     await facebookLogin.logIn(<String>['public_profile']);

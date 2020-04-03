@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -36,10 +37,12 @@ class MyCustomForm extends StatefulWidget {
 
 class MyCustomFormState extends State<MyCustomForm> {
   GlobalKey<FormBuilderState> _fbKey;
+  List<File> files;
   @override
   void initState() {
     super.initState();
     _fbKey = GlobalKey<FormBuilderState>();
+    files = new List<File>();
   }
 
   @override
@@ -119,51 +122,69 @@ class MyCustomFormState extends State<MyCustomForm> {
             ),
             SizedBox(height: 10),
             MaterialButton(
+                color: Colors.redAccent,
+                child: Text("Add", style: TextStyle(color: Colors.white)),
+                onPressed: () async {
+                  files = await FilePicker.getMultiFile();
+                }),
+            MaterialButton(
               color: Colors.redAccent,
               child: Text("Add", style: TextStyle(color: Colors.white)),
               onPressed: () async {
-                if (_fbKey.currentState.saveAndValidate()) {
-                  String name = _fbKey.currentState.value['name'];
-                  String price = _fbKey.currentState.value['price'].toString();
-                  String quantity =
-                      _fbKey.currentState.value['quantity'].toString();
-                  String description = _fbKey.currentState.value['description'];
-                  Map<String, int> myextras = new Map<String, int>();
-                  String extras = _fbKey.currentState.value['extras'];
-                  var list = extras.split(',');
-                  try {
-                    for (String i in list)
-                      myextras[i.split(":")[0]] =
-                          int.parse(i.split(":")[1]);
-                    Map images = _fbKey.currentState.value['images'];
-                    Fluttertoast.showToast(
-                        msg: ' Please Wait ',
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIos: 3,
-                        backgroundColor: Colors.red,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
-                    await Database.setProducts(
-                        context,
-                        widget.data,
-                        widget.documentID,
-                        description,
-                        myextras,
-                        images,
-                        name,
-                        double.parse(price),
-                        int.parse(quantity));
-                  } catch (e) {
-                    Fluttertoast.showToast(
-                        msg: ' Extras formate is wrong ',
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIos: 3,
-                        backgroundColor: Colors.red,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
+                if (files.length > 0) {
+                  if (_fbKey.currentState.saveAndValidate()) {
+                    String name = _fbKey.currentState.value['name'];
+                    String price =
+                        _fbKey.currentState.value['price'].toString();
+                    String quantity =
+                        _fbKey.currentState.value['quantity'].toString();
+                    String description =
+                        _fbKey.currentState.value['description'];
+                    Map<String, int> myextras = new Map<String, int>();
+                    String extras = _fbKey.currentState.value['extras'];
+                    var list = extras.split(',');
+                    try {
+                      for (String i in list)
+                        myextras[i.split(":")[0]] = int.parse(i.split(":")[1]);
+                      Map images = _fbKey.currentState.value['images'];
+                      Fluttertoast.showToast(
+                          msg: ' Please Wait ',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIos: 3,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                      await Database.setProducts(
+                          context,
+                          widget.data,
+                          widget.documentID,
+                          description,
+                          myextras,
+                          images,
+                          name,
+                          double.parse(price),
+                          int.parse(quantity));
+                    } catch (e) {
+                      Fluttertoast.showToast(
+                          msg: ' Extras formate is wrong ',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIos: 3,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                    }
                   }
+                } else {
+                  Fluttertoast.showToast(
+                      msg: ' Select Images ',
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIos: 3,
+                      backgroundColor: Colors.red,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
                 }
               },
             ),

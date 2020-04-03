@@ -38,7 +38,6 @@ class _MaterialAppWithThemeState extends State<MaterialAppWithTheme> {
         ChangeNotifierProvider(create: (context) => locator<CardListModelView>()),
         ChangeNotifierProvider(create: (context) => locator<CardModel>()),
         ChangeNotifierProvider(create: (context) => ShoppingCart(),)
-//        StreamProvider.value(value: null)
       ],
       child: MaterialApp(
         onGenerateRoute: Router.generateRoute,
